@@ -21,15 +21,9 @@
 }
 
 @keyframes subtleShine {
-    0% {
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25), 0 0 0 4px #4a5568, 0 0 0 6px rgba(251, 211, 141, 0);
-    }
-    50% {
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35), 0 0 0 4px #4a5568, 0 0 0 8px rgba(251, 211, 141, 0.25);
-    }
-    100% {
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25), 0 0 0 4px #4a5568, 0 0 0 6px rgba(251, 211, 141, 0);
-    }
+    0% { box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25), 0 0 0 4px #4a5568, 0 0 0 6px rgba(251, 211, 141, 0); }
+    50% { box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35), 0 0 0 4px #4a5568, 0 0 0 8px rgba(251, 211, 141, 0.25); }
+    100% { box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25), 0 0 0 4px #4a5568, 0 0 0 6px rgba(251, 211, 141, 0); }
 }
 
 body {
@@ -91,42 +85,43 @@ body {
     color: #e2e8f0;
     margin-bottom: 0.75rem;
     line-height: 1.6;
+    min-height: 1.6em;
 }
 
 .details-section strong {
     color: #fbd38d;
 }
 
-.location-reveal {
+/* Estilos para la revelación del lugar */
+.location-reveal-container {
+    display: inline-block;
     position: relative;
+    vertical-align: middle;
     cursor: default;
 }
 
-.location-placeholder, .location-name {
-    transition: opacity 0.7s ease-in-out, text-shadow 0.7s ease-in-out;
-}
-
 .location-placeholder {
-    color: #4a5568;
-    font-style: italic;
+    color: transparent;
+    user-select: none;
+    white-space: nowrap;
 }
 
 .location-name {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
+    width: 100%;
+    height: 100%;
     opacity: 0;
     color: #fbd38d;
     text-shadow: 0 0 8px rgba(251, 220, 141, 0.7);
+    transition: opacity 0.5s ease-in-out;
     pointer-events: none;
+    white-space: nowrap;
+    text-align: left;
 }
 
-.location-reveal:hover .location-placeholder {
-    opacity: 0;
-}
-
-.location-reveal:hover .location-name {
+.location-reveal-container:hover .location-name {
     opacity: 1;
 }
 
@@ -152,5 +147,8 @@ body {
     }
     .title {
         letter-spacing: 1px;
+    }
+    .details-section p {
+        min-height: 1.8em;
     }
 }
